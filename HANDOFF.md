@@ -119,7 +119,7 @@ npm run dev -- -p 3100
 - **Prisma enums must be multi-line.** `enum X { A B C }` on one line is INVALID and cascades into dozens of fake "unknown type" errors. (This bit us hard once.)
 - **Audit:** staff mutations write `audit_logs` (`lib/audit.ts`).
 - **Slugs** are Turkish + SEO-shaped (`misir-turlari`, `misir-sharm-el-sheikh-5-gece`).
-- **We use `prisma db push`, not migrations.** Before deploying, generate a real migration.
+- **Migrations are now baselined** (`prisma/migrations/0_init`, marked applied). Use **`npm run db:migrate`** (`prisma migrate dev`) for schema changes from now on — do **NOT** go back to `prisma db push` (it would drift from the migration history). Prod applies them with `prisma migrate deploy`.
 - When you delete a route, `rm -rf .next/types` before `tsc` (stale generated stubs linger).
 
 ---
@@ -167,7 +167,7 @@ A tour has many dated departures; each date has a price grid (date × room × pa
 
 **Tours CRUD (built).** `/admin/turlar/yeni` + `/[id]/duzenle` with `TourForm`, `DateManager` (adds departures with auto-generated price grids), `PublishButton` (draft↔published).
 
-**CMS page builder (verified — the priority).** Blocks are a JSON array on `pages.blocks`. `lib/blocks.ts` is the registry; `BlockRenderer` renders them server-side (dynamic blocks `tourGrid`/`destinationGrid`/`searchBar`/`testimonials` pull live DB data). Editor `PageBuilder.tsx`: block list with **drag-drop reorder + duplicate + per-block settings forms + live iframe preview** (`/onizle/[id]`). **Media library** (`/admin/medya`) uploads to `public/uploads` (**dev-only — prod needs S3/R2**) → `media` table; `MediaPicker` modal feeds `image`/`gallery` blocks. **Menu builder** (`/admin/menuler`) edits DB-backed header/footer menus. **Legal pages are now block-based & editable** (slug locked, `isSystem`, can't delete). Public render via the `[...slug]` catch-all; revisions saved on every save. Seeded demo page: **`/kampanyalar`**.
+**CMS page builder (verified — the priority).** Blocks are a JSON array on `pages.blocks`. `lib/blocks.ts` is the registry; `BlockRenderer` renders them server-side (dynamic blocks `tourGrid`/`destinationGrid`/`searchBar`/`testimonials` pull live DB data). Editor `PageBuilder.tsx`: block list with **drag-drop reorder + duplicate + per-block settings forms + live iframe preview** (`/onizle/[id]`). **Media library** (`/admin/medya`) uploads via `lib/storage.ts` (**S3/R2 when `S3_*` env set, else local `public/uploads`**) → `media` table; `MediaPicker` modal feeds `image`/`gallery` blocks. **Menu builder** (`/admin/menuler`) edits DB-backed header/footer menus. **Legal pages are now block-based & editable** (slug locked, `isSystem`, can't delete). Public render via the `[...slug]` catch-all; revisions saved on every save. Seeded demo page: **`/kampanyalar`**.
 
 **Version history + restore (verified).** A **"Geçmiş" (Sürüm Geçmişi) drawer** in `PageBuilder` lists saved versions newest-first (timestamp via `formatDateTimeTr`, editor name, block count, note; latest tagged "güncel"). Two server actions in `sayfalar/actions.ts`: `listPageRevisionsAction` (metadata only — no block payload) and `getPageRevisionAction` (one revision's title+blocks, scoped to its page). Each row: **Önizle** → `/onizle/[id]?rev=<id>` (the preview route now renders a specific revision's blocks, falling back to live if the id doesn't match), and **"Bu sürümü yükle"** → **load-into-editor** (sets title+blocks, marks dirty), then the user reviews and clicks **Kaydet** to commit. Restore deliberately does **not** silently mutate the published page; committing it is captured as a new revision with an auto-note (`savePageAction` gained an optional `note` param, e.g. *"‹date› sürümünden geri yüklendi"*). Revisions snapshot **title + blocks only** (not slug/SEO). Component: `components/admin/cms/RevisionHistory.tsx`.
 
@@ -210,7 +210,7 @@ Most-likely candidates, roughly in value order:
 3. **Accounting module** — revenue + daily/monthly reports, outstanding, supplier payments, commission, refunds (data already captured by payments/commissions).
 4. **B2B sub-agency portal** — net pricing tier, agency balance/commission, scoped reservations, vouchers (schema ready; big build; needs auth realm `B2B`, which exists).
 5. **Builder extras** (the user's favorite area): reusable/global blocks (`content_blocks` table exists), columns/nesting layout block, page templates. _(revision-restore UI + forms-builder ✅ done — §9.)_
-6. **Deploy / prod hardening:** commit a Prisma **migration**, make base-URL fully env-driven (`app/layout.tsx` `metadataBase` still hardcodes localhost), **S3/R2 for uploads**, automated DB backups, basic integration tests around the booking/payment txn, `git init`.
+6. **Deploy / prod hardening — partly DONE (see `DEPLOY.md`):** ✅ `git init` + initial commit, ✅ baseline Prisma migration, ✅ env-driven base URL, ✅ S3/R2-ready uploads (`lib/storage.ts`), ✅ `.env.example`. **Remaining (need your accounts/infra):** staging deploy (Vercel), managed Postgres, set prod env (`RESEND_API_KEY`, `S3_*`, `AUTH_SECRET`, `NEXT_PUBLIC_BASE_URL`), automated DB backups, integration tests around the booking/quota/payment txn.
 
 ---
 
@@ -232,10 +232,10 @@ Most-likely candidates, roughly in value order:
 - Prisma **single-line enums are invalid**; raw SQL needs **quoted camelCase columns**.
 - **After `prisma db push` (or any schema change), RESTART the dev server.** `db push` regenerates the Prisma client on disk (so `tsc` passes), but the running Next dev process keeps the **old client in memory** → queries on the new column 500 with *"Unknown argument `x`"*. Stop+start the preview server. (Bit us adding `pages.draftBlocks`.)
 - `app/api/_foo` (underscore) is **excluded from routing** — use a non-underscore name for temp routes.
-- `public/uploads` works in dev but is **ephemeral in prod** (Vercel read-only) — needs object storage.
+- Uploads go through **`lib/storage.ts`**: S3/R2 object storage when the `S3_*` env vars are set, else local `public/uploads` (dev only — ephemeral on serverless). **Set the `S3_*` vars in prod** (see `.env.example`).
 - Email silently "succeeds" via console when `RESEND_API_KEY` is empty — check the dev-server log / `notifications` table.
 - Prisma `@db.Decimal` is used for `exchangeRate` and `commissionPercent`; everything else money-related is `Int` minor units.
-- `metadataBase` in `app/layout.tsx` is still `http://localhost:3000` (a deploy TODO).
+- `metadataBase` now reads **`NEXT_PUBLIC_BASE_URL`** (falls back to `localhost:3100`) — set it to the real domain in prod.
 
 ---
 
