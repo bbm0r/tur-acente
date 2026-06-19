@@ -4,8 +4,16 @@ node_modules
 /build
 *.log
 .DS_Store
+# secrets / env — never commit real values (.env.example is the only tracked one)
 .env
-.env*.local
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.netrc
 /coverage
 next-env.d.ts
 /public/uploads

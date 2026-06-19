@@ -6,7 +6,17 @@ import { db } from "./db";
 
 const COOKIE = "ta_session";
 const MAX_AGE = 60 * 60 * 8; // 8h
-const secret = new TextEncoder().encode(process.env.AUTH_SECRET || "dev-only-secret-change-in-production");
+// Fail-closed: production REQUIRES a real AUTH_SECRET. The dev fallback only applies
+// locally (NODE_ENV !== "production"), so the public repo's fallback can never sign or
+// verify real sessions in a deployed environment.
+function getSecret() {
+  const s = process.env.AUTH_SECRET;
+  if (s) return new TextEncoder().encode(s);
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("AUTH_SECRET is not set — a long random AUTH_SECRET is required in production.");
+  }
+  return new TextEncoder().encode("dev-only-insecure-secret-not-for-production");
+}
 
 type Realm = "STAFF" | "CUSTOMER" | "B2B";
 type Session = { userId: string; realm: Realm };
@@ -19,7 +29,7 @@ async function createSession(userId: string, realm: Realm) {
     .setSubject(userId)
     .setIssuedAt()
     .setExpirationTime("8h")
-    .sign(secret);
+    .sign(getSecret());
   const c = await cookies();
   c.set(COOKIE, token, {
     httpOnly: true,
@@ -35,7 +45,7 @@ export async function getSession(): Promise<Session | null> {
   const token = c.get(COOKIE)?.value;
   if (!token) return null;
   try {
-    const { payload } = await jwtVerify(token, secret);
+    const { payload } = await jwtVerify(token, getSecret());
     return { userId: String(payload.sub), realm: payload.realm as Realm };
   } catch {
     return null; // bad signature / expired / tampered
