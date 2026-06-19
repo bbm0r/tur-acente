@@ -4,9 +4,31 @@
 > Sells international package tours: **Mısır · Rusya (Moskova) · İtalya · Benelüks · Yunanistan**.
 > Docs in English; all user-facing content, slugs, and seed data in Turkish.
 
-This repository currently contains the **architecture blueprint** (outputs A–R) plus an
-executable `prisma/schema.prisma`. The running Next.js application is scaffolded from this
-schema as the next step.
+The full Next.js application is **built and runs locally** — see **`RUNNING.md`** (how to run) and
+**`HANDOFF.md`** (full project state). `docs/` holds the original architecture blueprint.
+
+---
+
+## ⚠️ NOT READY TO GO LIVE — read before publishing
+
+This is **development / demo software with placeholder data.** Nothing here is legal, financial, or
+compliance advice. **Before this site serves real customers or takes a single real booking, have a
+Turkish lawyer + your accountant + TÜRSAB review it.** At minimum, you must handle:
+
+**Legal & regulatory (Türkiye)**
+- [ ] **Travel-agency licence** — running a tur acentesi legally requires **TÜRSAB membership + a Group A işletme belgesi (1618 sayılı Kanun)**. The site shows a **fake "TÜRSAB Belge No: 0000 (demo)"** — selling tours without the real licence is unlawful.
+- [ ] **KVKK (6698)** — the Gizlilik/KVKK page is **placeholder text**. You need a real *aydınlatma metni*, explicit *açık rıza*, a **VERBİS** registration, and a data-retention policy before storing real personal data.
+- [ ] **Consumer & distance-sales law** — *6502 sayılı Tüketici Kanunu*, the *Mesafeli Sözleşmeler Yönetmeliği*, and the **Paket Tur Sözleşmeleri Yönetmeliği** require a valid *ön bilgilendirme formu*, *paket tur sözleşmesi*, cancellation/withdrawal terms, and the **mandatory package-travel financial guarantee / zorunlu sigorta**. The Koşullar / İptal-İade pages are **demo content**.
+- [ ] **Real company identity** — vergi no, MERSIS, ticaret sicil, address, phone, IBAN are all **placeholders** (`+90 212 000 00 00`, `TR00 …`). Misleading prices/availability is itself a consumer-law violation — all tour content and pricing must be **real and accurate**.
+- [ ] **Payments** — not implemented. When added, use a **licensed PSP (iyzico / 3-D Secure)** and never store card data (PCI).
+
+**Technical pre-launch**
+- [ ] **Rotate every secret** — fresh `AUTH_SECRET`, real DB credentials; never ship the dev `.env` values.
+- [ ] **Remove all demo logins** (`admin@turacente.com / admin1234`, `ayse@example.com / test1234`, the B2B account) and the demo seed data.
+- [ ] Email is a console stub (set `RESEND_API_KEY`); uploads need real object storage (S3/R2) in prod.
+- [ ] Get an independent **security review** and set up DB backups.
+
+> TL;DR: the software works; the **business/legal layer is placeholder**. Don't go live on the demo data.
 
 ---
 

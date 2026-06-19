@@ -44,10 +44,11 @@ UI is **Turkish-first**; code/docs English. Full written blueprint in `docs/` (�
 | **Forms-builder** — admin form designer + submissions inbox; public `form` block → submission → CRM lead | ✅ |
 | **Premium CRM suite** — leads workflow → interactive drag-drop pipeline → contacts 360° → tasks → segments & email campaigns → analytics dashboard | ✅ |
 | Auth (signed JWT, login throttle, realm-aware) · transactional email (Resend **or dev-console fallback**) | ✅ |
+| **Customer ↔ agency messaging** — per-reservation thread (customer dashboard + admin reservation detail); staff in-app alert on new message, customer email on staff reply; ownership-checked, read-flagged | ✅ |
 | **Ship-readiness** — git+pushed, Prisma migration baselined, env base-URL, S3/R2-ready uploads, `.env.example`, **prod `next build` passes** | ✅ |
 | **Online card payment** | ❌ deprioritized by user (checkout = bank transfer / "agency will contact me") |
 | **Passport data** | ❌ removed on purpose (no field, no storage, columns dropped) |
-| Voucher/proforma PDFs · accounting module · B2B portal · message-the-agency · staging deploy/backups/tests | ❌ not built (§11) |
+| Voucher/proforma PDFs · accounting module · B2B portal · staging deploy/backups/tests | ❌ not built (§11) |
 
 **`npx tsc --noEmit` = 0 errors and `npm run build` passes. Keep it that way.**
 
@@ -171,6 +172,8 @@ Spine: `Destinations → Tours → TourDates(+TourPrices) → Reservation(→Pas
 
 **Customer dashboard (verified).** `registerCustomer` links by email (claims guest bookings). My-reservations, detail (reuses `ReservationView`), favorites ♥, profile (email locked, KVKK consent).
 
+**Customer ↔ agency messaging (verified).** Per-reservation thread on the **`messages`** table (was schema-only, now wired). Customer composes from `/hesabim/rezervasyon/[ref]` (direction `IN`) → in-app `ADMIN_ALERT` notification routed to the assigned agent; staff reply from the admin reservation detail (direction `OUT`) → marks the customer's inbound messages read **and** emails the customer a deep link back to the thread. Domain **`lib/messages.ts`** (`postCustomerMessage`/`postStaffReply`/`listReservationMessages`, ownership-checked). Shared client UI **`components/messaging/MessagePanel.tsx`** (chat bubbles + composer, ⌘/Ctrl+Enter send; the server component passes its server action **as a prop** + a `boundArg` ref/id). Actions: `sendCustomerMessageAction` (`hesabim/rezervasyon/[ref]/actions.ts`), `sendReplyAction` (admin `rezervasyonlar/[id]/actions.ts`). **Notes:** per-reservation only (no standalone inbox); not shown on the public guest-lookup `ReservationView` (needs a customer session); reuses `ADMIN_ALERT` (no new enum → no migration). Verified end-to-end (both directions, ownership guard, read-flag, notifications, live UI send on `TA-7H2K9M`).
+
 **Auth + email + uploads (verified).** JWT sessions reject tampered/old/forged cookies; login + throttle work. Email via Resend or dev-console (no key). Uploads via `lib/storage.ts` (verified local; S3/R2 path is env-gated, untested without creds).
 
 ---
@@ -186,13 +189,12 @@ Spine: `Destinations → Tours → TourDates(+TourPrices) → Reservation(→Pas
 
 ## 11. What's next (pick with the user)
 
-The CMS builder, forms, and the entire CRM are done. Remaining, roughly in value order:
+The CMS builder, forms, the entire CRM, and **customer↔agency messaging** are done. Remaining, roughly in value order:
 1. **Finish ship/deploy** (`DEPLOY.md`, §16): provision managed Postgres, deploy to Vercel + `prisma migrate deploy` release step, set prod env (`AUTH_SECRET`, `NEXT_PUBLIC_BASE_URL`, `RESEND_API_KEY`+`EMAIL_FROM`, `S3_*`), enable DB backups. **Needs the user's accounts.**
-2. **Message-the-agency** from a reservation (`messages` table ready) — the customer area's last small gap.
-3. **Voucher / proforma PDFs** — add `@react-pdf/renderer`; needed to service confirmed bookings.
-4. **Accounting module** — revenue, outstanding, supplier payments, commissions, refunds (data already in `payments/commissions/refunds`).
-5. **B2B sub-agency portal** — net pricing, agency balance/commission, scoped reservations, vouchers (schema + `B2B` realm exist; big build).
-6. **Quality:** integration tests around the booking/quota/payment txn; **clear demo CRM data** before launch (see §14).
+2. **Voucher / proforma PDFs** — add `@react-pdf/renderer`; needed to service confirmed bookings.
+3. **Accounting module** — revenue, outstanding, supplier payments, commissions, refunds (data already in `payments/commissions/refunds`).
+4. **B2B sub-agency portal** — net pricing, agency balance/commission, scoped reservations, vouchers (schema + `B2B` realm exist; big build).
+5. **Quality:** integration tests around the booking/quota/payment txn; **clear demo CRM data** before launch (see §14).
 
 ---
 

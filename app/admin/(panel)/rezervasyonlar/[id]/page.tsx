@@ -1,15 +1,18 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, MapPin, CalendarDays, Users, Mail, Phone, Banknote, FileText, User2 } from "lucide-react";
+import { ArrowLeft, MapPin, CalendarDays, Users, Mail, Phone, Banknote, FileText, User2, MessageCircle } from "lucide-react";
 import { db } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
-import { formatDateRangeTr, formatDateTr } from "@/lib/utils";
+import { formatDateRangeTr, formatDateTr, formatDateTimeTr } from "@/lib/utils";
 import { reservationStatusLabel, reservationStatusColor, paxTypeLabel } from "@/lib/labels";
 import { nextStatuses } from "@/lib/statusMachine";
+import { listReservationMessages } from "@/lib/messages";
 import { StatusControl } from "@/components/admin/reservation/StatusControl";
 import { PaymentForm } from "@/components/admin/reservation/PaymentForm";
 import { NotesPanel } from "@/components/admin/reservation/NotesPanel";
 import { AssignControl } from "@/components/admin/reservation/AssignControl";
+import { MessagePanel } from "@/components/messaging/MessagePanel";
+import { sendReplyAction } from "./actions";
 
 const methodLabel: Record<string, string> = {
   CREDIT_CARD: "Kredi Kartı", BANK_TRANSFER: "Banka Havalesi", CASH: "Nakit", AGENCY_CREDIT: "Acente Bakiyesi", PARTIAL: "Kısmi",
@@ -33,6 +36,15 @@ export default async function ReservationDetail({ params }: { params: Promise<{ 
   if (!r) notFound();
   const staff = await db.user.findMany({ where: { realm: "STAFF", isActive: true }, orderBy: { firstName: "asc" } });
   const allowed = nextStatuses(r.status);
+  const threadRaw = await listReservationMessages(r.id);
+  const unreadInbound = threadRaw.filter((m) => m.direction === "IN" && !m.isRead).length;
+  const thread = threadRaw.map((m) => ({
+    id: m.id,
+    direction: m.direction,
+    body: m.body,
+    createdAtLabel: formatDateTimeTr(m.createdAt),
+    senderName: m.senderName,
+  }));
 
   return (
     <div>
@@ -108,6 +120,14 @@ export default async function ReservationDetail({ params }: { params: Promise<{ 
           <section className="card p-6">
             <h2 className="mb-3 flex items-center gap-2 font-bold text-ink"><FileText className="h-5 w-5 text-brand-600" /> İç Notlar</h2>
             <NotesPanel reservationId={r.id} notes={r.notesInternal} />
+          </section>
+
+          <section className="card p-6">
+            <h2 className="mb-3 flex items-center gap-2 font-bold text-ink">
+              <MessageCircle className="h-5 w-5 text-brand-600" /> Müşteri Mesajları
+              {unreadInbound > 0 && <span className="chip bg-amber-100 text-amber-700">{unreadInbound} yeni</span>}
+            </h2>
+            <MessagePanel perspective="staff" messages={thread} action={sendReplyAction} boundArg={r.id} />
           </section>
         </div>
 

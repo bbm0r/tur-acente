@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { getStaffUser } from "@/lib/auth";
 import { changeStatus, recordPayment, addInternalNote, assignAgent } from "@/lib/reservationOps";
 import { sendPaymentReceived } from "@/lib/notify";
+import { postStaffReply } from "@/lib/messages";
 
 async function requireStaff() {
   const u = await getStaffUser();
@@ -47,4 +48,16 @@ export async function assignAgentAction(reservationId: string, assignedToId: str
   await assignAgent(reservationId, assignedToId || null, u.id);
   revalidatePath(`/admin/rezervasyonlar/${reservationId}`);
   return { ok: true };
+}
+
+export async function sendReplyAction(reservationId: string, body: string): Promise<ActionResult> {
+  const u = await requireStaff();
+  if (!body.trim()) return { ok: false, error: "Mesaj boş olamaz." };
+  try {
+    await postStaffReply({ reservationId, senderUserId: u.id, body });
+    revalidatePath(`/admin/rezervasyonlar/${reservationId}`);
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "Mesaj gönderilemedi." };
+  }
 }
