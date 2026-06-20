@@ -4,6 +4,11 @@
 
 > # ⚖️ HUKUKİ UYARI — SORUMLULUK REDDİ
 >
+> **🟢 Bu, AÇIK KAYNAK bir projedir.** Kod herkese açıktır; dileyen serbestçe **alabilir, klonlayabilir,
+> fork'layabilir ve kendi kopyasında geliştirebilir.** Yazılımı kullanan/yayına alan herkes onu
+> **tamamen kendi sorumluluğunda** kullanır. _(Bu depo salt-okunurdur/arşivlidir — buradan düzenlenemez;
+> geliştirmek için kendi kopyanızı/fork'unuzu alın.)_
+>
 > **🇹🇷 Bu yazılım geliştirme/demo amaçlıdır ve "OLDUĞU GİBİ" (as-is) sunulur.** Gerçek bir tur
 > acentesi değildir; gerçek satış, rezervasyon veya tahsilat yapmaz. İçindeki firma bilgileri,
 > fiyatlar, turlar, **TÜRSAB belge numarası**, telefon, IBAN ve tüm yasal metinler **kurgusal

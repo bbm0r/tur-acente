@@ -13,6 +13,12 @@ Bu proje (**"Yazılım"**), bir tur/seyahat acentesi platformunun **geliştirme 
 İçindeki tüm firma bilgileri, fiyatlar, turlar, TÜRSAB belge numarası, telefon/e-posta/IBAN,
 yorumlar ve yasal metinler **kurgusal örneklerdir** ve **hiçbir bağlayıcılığı yoktur.**
 
+Yazılım **açık kaynaktır**: kod herkese açıktır ve [`LICENSE`](LICENSE) kapsamında dileyen
+serbestçe **alabilir, klonlayabilir, fork'layabilir ve kendi kopyasında geliştirebilir.** Yazılımı
+edinen/kullanan/yayına alan **herkes onu tamamen kendi sorumluluğunda kullanır.** Bu depo
+**salt-okunur/arşivli** tutulabilir; bu durumda buradan düzenleme yapılamaz — geliştirmek isteyen
+kendi kopyasını/fork'unu alır.
+
 ## 2. "Olduğu gibi" sunulur — hiçbir garanti yoktur
 
 Yazılım **"OLDUĞU GİBİ" (as-is)** ve **"mevcut hâliyle"** sunulur. Yazar; yazılımın
