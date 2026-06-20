@@ -70,7 +70,7 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="bg-slate-50">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026") }} />
 
       {/* Hero */}
       <section className={`relative overflow-hidden bg-gradient-to-br ${theme.gradient} text-white`}>

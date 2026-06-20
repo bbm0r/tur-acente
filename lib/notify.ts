@@ -6,6 +6,10 @@ import { formatDateRangeTr } from "./utils";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3100";
 
+/** Escape user-/staff-controlled values before interpolating into email HTML. */
+const esc = (s: unknown) =>
+  String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
+
 /** Customer confirmation email when a reservation is created. */
 export async function sendReservationConfirmation(reference: string) {
   const r = await db.reservation.findUnique({
@@ -16,11 +20,11 @@ export async function sendReservationConfirmation(reference: string) {
 
   const html = emailLayout(
     "Rezervasyon talebiniz alındı 🎉",
-    `<p>Merhaba ${r.customer.firstName},</p>
-     <p><b>${r.tour.titleTr}</b> turu için rezervasyon talebiniz başarıyla alındı.</p>
+    `<p>Merhaba ${esc(r.customer.firstName)},</p>
+     <p><b>${esc(r.tour.titleTr)}</b> turu için rezervasyon talebiniz başarıyla alındı.</p>
      <table style="font-size:14px;line-height:1.9">
-       <tr><td style="color:#64748b">Referans No</td><td><b>${r.reference}</b></td></tr>
-       <tr><td style="color:#64748b">Destinasyon</td><td>${r.tour.destination.nameTr}</td></tr>
+       <tr><td style="color:#64748b">Referans No</td><td><b>${esc(r.reference)}</b></td></tr>
+       <tr><td style="color:#64748b">Destinasyon</td><td>${esc(r.tour.destination.nameTr)}</td></tr>
        <tr><td style="color:#64748b">Tarih</td><td>${formatDateRangeTr(r.tourDate.startDate, r.tourDate.endDate)}</td></tr>
        <tr><td style="color:#64748b">Kişi</td><td>${r.adults} yetişkin${r.children ? `, ${r.children} çocuk` : ""}</td></tr>
        <tr><td style="color:#64748b">Toplam</td><td><b>${formatMoney(r.totalMinor)}</b></td></tr>
@@ -49,8 +53,8 @@ export async function sendPaymentReceived(reservationId: string) {
 
   const html = emailLayout(
     "Ödemeniz alındı ✅",
-    `<p>Merhaba ${r.customer.firstName},</p>
-     <p><b>${r.tour.titleTr}</b> rezervasyonunuz (${r.reference}) için <b>${formatMoney(r.paidMinor)}</b> ödeme alındı.</p>
+    `<p>Merhaba ${esc(r.customer.firstName)},</p>
+     <p><b>${esc(r.tour.titleTr)}</b> rezervasyonunuz (${esc(r.reference)}) için <b>${formatMoney(r.paidMinor)}</b> ödeme alındı.</p>
      <p>${r.balanceMinor > 0 ? `Kalan bakiye: <b>${formatMoney(r.balanceMinor)}</b>.` : "Ödemeniz tamamlanmıştır. İyi tatiller!"}</p>`,
   );
 

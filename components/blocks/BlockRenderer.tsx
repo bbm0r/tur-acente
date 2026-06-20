@@ -28,14 +28,23 @@ const HERO_THEME: Record<string, string> = {
 
 const PAD: Record<string, string> = { none: "py-0", sm: "py-4", md: "py-10", lg: "py-16", xl: "py-24" };
 
-/** Remove the obvious script/handler vectors from staff-authored HTML (richText/html blocks). */
+/**
+ * Strip XSS vectors from staff-authored HTML (richText/html blocks). Regex-based and
+ * conservative — it removes dangerous elements/attributes but leaves ordinary rich text
+ * (p, h2/h3, ul/ol/li, a, img, b/i/strong/em, blockquote, br) intact. For defence-in-depth
+ * against a rogue/compromised staff account, swap in a real sanitizer (DOMPurify).
+ */
 function sanitizeHtml(html: string) {
   return String(html || "")
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/\son\w+\s*=\s*"[^"]*"/gi, "")
-    .replace(/\son\w+\s*=\s*'[^']*'/gi, "")
-    .replace(/\son\w+\s*=\s*[^\s>]+/gi, "")
-    .replace(/javascript:/gi, "");
+    // dangerous paired elements, with their content
+    .replace(/<(script|style|iframe|object|embed|svg|math|form)\b[\s\S]*?<\/\1>/gi, "")
+    // any leftover/standalone dangerous tags (incl. void/self-closing)
+    .replace(/<\/?(script|style|iframe|object|embed|svg|math|form|link|meta|base)\b[^>]*>/gi, "")
+    // inline event handlers — note: whitespace OR slash before "on…" (closes <svg/onload=>)
+    .replace(/[\s/]on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    // dangerous URL schemes
+    .replace(/(javascript|vbscript)\s*:/gi, "")
+    .replace(/data\s*:\s*text\/html/gi, "data:blocked");
 }
 
 function hasStyle(s?: BlockStyle) {
