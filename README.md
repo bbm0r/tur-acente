@@ -31,11 +31,15 @@ Turkish lawyer + your accountant + TÜRSAB review it.** At minimum, you must han
 > TL;DR: the software works; the **business/legal layer is placeholder**. Don't go live on the demo data.
 
 > **🇹🇷 Yasal Sorumluluk (Sorumluluk Reddi):** Bu proje geliştirme/demo amaçlı, **"olduğu gibi" (as-is)**
-> sunulmaktadır. Siteyi yayına alan ve işleten taraf — **yayıncı** — yürürlükteki tüm yasal
-> yükümlülüklere uymaktan **tek başına sorumludur. Bilinmeyen veya öngörülemeyen hukuki açıklar,
-> eksiklikler ya da ihlaller bulunsa dahi tüm sorumluluk yayıncıya aittir.** Yazılımı geliştiren/
-> sağlayan taraf hiçbir hukuki, mali veya cezai sorumluluk üstlenmez. Bu metin hukuki tavsiye değildir;
-> yayına almadan önce mutlaka bir **avukata ve TÜRSAB'a** danışın.
+> sunulmaktadır. Yazılım, [`LICENSE`](LICENSE) kapsamında **herkese açık ve ücretsiz** olarak
+> devredilmiştir: dileyen alıp **kendi riskiyle** kullanabilir, değiştirebilir, geliştirebilir ve
+> yayına alabilir. Yazılımı alan/yayına alan/işleten taraf — **işletici/yayıncı** — yürürlükteki tüm
+> yasal yükümlülüklere uymaktan **tek başına sorumludur. Bilinmeyen veya öngörülemeyen hukuki açıklar,
+> eksiklikler ya da ihlaller bulunsa dahi tüm sorumluluk işleticiye/yayıncıya aittir.** Yazılımı
+> geliştiren/sağlayan/veren taraf **hiçbir hukuki, mali veya cezai sorumluluk üstlenmez** ve yazılımın
+> herhangi bir yasaya uygun olduğuna dair **hiçbir taahhütte bulunmaz.** Ayrıntılı sorumluluk reddi ve
+> devir bildirimi için bkz. [`SORUMLULUK-REDDI.md`](SORUMLULUK-REDDI.md). Bu metin hukuki tavsiye
+> değildir; yayına almadan önce mutlaka bir **avukata ve TÜRSAB'a** danışın.
 
 ---
 

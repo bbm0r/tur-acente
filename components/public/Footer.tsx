@@ -27,6 +27,16 @@ export async function Footer() {
   const corporateLinks = footerMenu.length ? footerMenu.map((i) => ({ label: i.label, href: i.url })) : corporate;
   return (
     <footer className="mt-20 border-t border-slate-200 bg-white">
+      {/* DEMO sorumluluk reddi — gerçek yayında kaldırın/değiştirin (bkz. SORUMLULUK-REDDI.md) */}
+      <div className="border-b border-amber-200 bg-amber-50">
+        <div className="container-page py-3 text-center text-xs leading-relaxed text-amber-800">
+          <strong>⚠️ DEMO / ÖRNEK YAZILIM:</strong> Bu site geliştirme/demo amaçlıdır;{" "}
+          <strong>gerçek satış, rezervasyon veya tahsilat yapmaz.</strong> Firma bilgileri, fiyatlar,
+          turlar ve TÜRSAB belge no dâhil tüm içerik <strong>kurgusal örnektir</strong> ve bağlayıcı
+          değildir. Yazılım <strong>"olduğu gibi" (as-is)</strong> sunulur; yayına alan/işleten taraf
+          tüm yasal sorumluluğu üstlenir. Bu içerik hukuki tavsiye değildir.
+        </div>
+      </div>
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
@@ -48,9 +58,9 @@ export async function Footer() {
         <div>
           <h4 className="text-sm font-bold uppercase tracking-wide text-ink-muted">İletişim</h4>
           <ul className="mt-4 space-y-3 text-sm text-ink-soft">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand-600" /> +90 212 000 00 00</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-brand-600" /> info@turacente.com</li>
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-brand-600" /> İstanbul, Türkiye</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand-600" /> +90 212 000 00 00 <span className="text-ink-muted">(örnek)</span></li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-brand-600" /> info@turacente.com <span className="text-ink-muted">(örnek)</span></li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-brand-600" /> İstanbul, Türkiye <span className="text-ink-muted">(örnek)</span></li>
           </ul>
           <div className="mt-5 flex flex-wrap gap-2">
             {legal.map((l) => (
@@ -63,8 +73,8 @@ export async function Footer() {
       </div>
       <div className="border-t border-slate-100">
         <div className="container-page flex flex-col items-center justify-between gap-2 py-5 text-xs text-ink-muted sm:flex-row">
-          <span>© {new Date().getFullYear()} Tur Acente. Tüm hakları saklıdır.</span>
-          <span>TÜRSAB üyesi · Belge No: 0000 (demo)</span>
+          <span>© {new Date().getFullYear()} Tur Acente (örnek/demo). Hukuki sorumluluk yayına alan tarafa aittir.</span>
+          <span className="font-medium text-amber-700">TÜRSAB Belge No: 0000 — SAHTE/DEMO (gerçek üyelik değildir)</span>
         </div>
       </div>
     </footer>

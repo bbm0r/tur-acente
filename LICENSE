@@ -1,38 +1,120 @@
-Tur Acente — Proprietary Software License
-Copyright (c) 2026 bbm0r (github.com/bbm0r). All rights reserved.
+Tur Acente — Permissive "AS-IS" Handoff License
+Copyright (c) 2026 bbm0r (github.com/bbm0r)
 
-1. RESERVED RIGHTS. This source code and all accompanying materials (the "Software")
-   are made publicly viewable for reference and evaluation only. No licence or right is
-   granted to use, copy, reproduce, modify, adapt, merge, publish, distribute, sublicense,
-   sell, host, or deploy the Software, in whole or in part, except under a separate, prior,
-   written agreement signed by the copyright holder.
+================================================================================
+ENGLISH (controlling text)
+================================================================================
 
-2. AS-IS; NO WARRANTY. The Software is provided "AS IS" and "AS AVAILABLE", without
-   warranty of any kind, whether express, implied, or statutory, including without
-   limitation any warranties of merchantability, fitness for a particular purpose, title,
-   accuracy, availability, or non-infringement.
+1. GRANT. Permission is hereby granted, free of charge, to any person or entity
+   obtaining a copy of this software and the accompanying materials (the
+   "Software"), to use, copy, reproduce, modify, adapt, merge, publish,
+   distribute, sublicense, develop further upon, sell copies of, host, and
+   deploy the Software, in whole or in part, FOR ANY PURPOSE and ENTIRELY AT THE
+   RECIPIENT'S OWN RISK, subject only to the conditions below. No royalty,
+   permission request, or further agreement with the author is required.
 
-3. LIMITATION OF LIABILITY. To the maximum extent permitted by applicable law, in no event
-   shall the author or copyright holder be liable for any direct, indirect, incidental,
-   special, consequential, or other damages, losses, claims, fines, or liabilities of any
-   kind arising out of or in connection with the Software or its use, even if advised of the
-   possibility of such damages. Nothing in this Licence excludes or limits liability that
-   cannot be excluded or limited under applicable mandatory law (for example, liability for
-   intent or gross negligence under Turkish law, Türk Borçlar Kanunu art. 115).
+2. ATTRIBUTION & NOTICE. The above copyright notice, this license, and the
+   disclaimer in Sections 3–7 shall be retained in all copies or substantial
+   portions of the Software. Removing or altering them does not transfer to the
+   author any responsibility for the Software.
 
-4. OPERATOR / PUBLISHER RESPONSIBILITY. Any person or entity that deploys, publishes, hosts,
-   or operates the Software or any derivative of it (the "Operator") is solely and
-   exclusively responsible for compliance with all applicable laws, regulations, licences,
-   and obligations — including, in the Republic of Türkiye, travel-agency licensing
-   (TÜRSAB / 1618 sayılı Kanun), personal-data protection (KVKK / 6698 sayılı Kanun),
-   consumer and distance-sales law (6502 sayılı Kanun and related regulations, including
-   mandatory package-travel financial guarantees/insurance), tax, and payment regulations —
-   including for any unknown, latent, or unforeseen legal deficiency. The author bears no
-   such responsibility.
+3. AS-IS; NO WARRANTY. The Software is provided "AS IS" and "AS AVAILABLE",
+   without warranty of any kind, whether express, implied, or statutory,
+   including without limitation any warranties or conditions of merchantability,
+   fitness for a particular purpose, title, quality, accuracy, completeness,
+   availability, legal or regulatory compliance, or non-infringement. The author
+   does not warrant that the Software is fit for any commercial, legal, or
+   regulated use whatsoever.
 
-5. NO LEGAL ADVICE. Nothing in the Software or its documentation constitutes legal,
-   financial, or compliance advice. Obtain qualified professional advice before any
-   real-world use.
+4. LIMITATION OF LIABILITY. To the maximum extent permitted by applicable law,
+   in no event shall the author or copyright holder be liable for any direct,
+   indirect, incidental, special, exemplary, consequential, or other damages,
+   losses, costs, claims, fines, penalties, administrative sanctions, or
+   liabilities of any kind whatsoever — whether in contract, tort (including
+   negligence), strict liability, or otherwise — arising out of, related to, or
+   in connection with the Software, its documentation, its use, its deployment,
+   or any inability to use it, EVEN IF advised of the possibility of such damage.
+   The entire risk as to the use and performance of the Software remains with the
+   recipient. Nothing in this license excludes or limits liability that cannot be
+   excluded or limited under applicable mandatory law (for example, liability for
+   intent (kast) or gross negligence (ağır kusur) under Turkish law, Türk Borçlar
+   Kanunu art. 115); only such non-excludable liability survives.
 
-6. DEMO DATA. The Software ships with placeholder/demo data, credentials, and content that
-   must be removed or replaced before any production use.
+5. OPERATOR / PUBLISHER SOLE RESPONSIBILITY. Any person or entity that uses,
+   develops upon, deploys, publishes, hosts, sells, or operates the Software or
+   any derivative of it (the "Operator") is SOLELY AND EXCLUSIVELY responsible
+   for compliance with all applicable laws, regulations, licences, permits,
+   filings, taxes, and obligations — including, in the Republic of Türkiye and
+   without limitation:
+     • travel-agency licensing — TÜRSAB membership and a Group A işletme belgesi
+       under 1618 sayılı Seyahat Acentaları Kanunu;
+     • personal-data protection — KVKK / 6698 sayılı Kanun, VERBİS registration,
+       aydınlatma metni and açık rıza, and data-retention rules;
+     • consumer and distance-sales law — 6502 sayılı Tüketici Kanunu, the
+       Mesafeli Sözleşmeler Yönetmeliği and the Paket Tur Sözleşmeleri
+       Yönetmeliği, including the mandatory package-travel financial guarantee /
+       compulsory insurance (zorunlu sigorta / teminat);
+     • advertising, pricing accuracy, tax, e-invoicing, and payment / PCI-DSS
+       regulation.
+   This responsibility extends to ANY unknown, latent, hidden, or unforeseen
+   legal deficiency, gap, defect, or non-compliance, whether or not it could have
+   been discovered. The author bears NO such responsibility and gives NO
+   assurance that the Software, as provided, complies with any law.
+
+6. NO LEGAL ADVICE; DEMO DATA. Nothing in the Software or its documentation
+   constitutes legal, financial, tax, or compliance advice. The Software ships
+   with placeholder / demo data, credentials, sample legal texts, a fictitious
+   "TÜRSAB Belge No", and example company identity that are NOT real, are NOT
+   legally valid, and MUST be reviewed by a qualified lawyer and replaced or
+   removed before any real-world or production use.
+
+7. INDEMNITY. To the extent permitted by applicable law, the Operator shall
+   indemnify and hold harmless the author from and against any claim, demand,
+   loss, fine, or liability brought by a third party (including customers,
+   authorities, or TÜRSAB) arising out of the Operator's use, development,
+   deployment, or operation of the Software.
+
+================================================================================
+TÜRKÇE (özet — bağlayıcı metin yukarıdaki İngilizce metindir)
+================================================================================
+
+1. İZİN. Bu yazılımı edinen herkese; yazılımı KENDİ RİSKİYLE ve HERHANGİ BİR
+   AMAÇLA kullanma, kopyalama, değiştirme, geliştirme, çoğaltma, yayma, yayına
+   alma, satma ve barındırma izni ücretsiz olarak verilir. Yazardan ayrıca izin
+   istemeye gerek yoktur.
+
+2. ATIF. Telif bildirimi ve aşağıdaki feragat metinleri tüm kopyalarda
+   korunmalıdır. Bunların silinmesi yazara hiçbir sorumluluk yüklemez.
+
+3. OLDUĞU GİBİ; GARANTİ YOK. Yazılım "OLDUĞU GİBİ" (as-is) ve "MEVCUT HÂLİYLE"
+   sunulur; ticari elverişlilik, belirli amaca uygunluk, doğruluk, eksiksizlik ve
+   YASAL/MEVZUATA UYGUNLUK dahil hiçbir açık, zımni veya kanuni garanti verilmez.
+
+4. SORUMLULUK SINIRI. Yürürlükteki zorunlu hukukun izin verdiği azami ölçüde,
+   yazar; yazılımın kullanımı, geliştirilmesi, yayına alınması veya işletilmesinden
+   doğan hiçbir doğrudan/dolaylı zarar, kayıp, masraf, idari/cezai yaptırım veya
+   talepten sorumlu tutulamaz. Tüm risk yazılımı kullanan tarafa aittir. (Kast veya
+   ağır kusur — TBK m.115 — gibi hukuken bertaraf edilemeyen sorumluluk saklıdır.)
+
+5. İŞLETİCİ/YAYINCININ TEK BAŞINA SORUMLULUĞU. Yazılımı kullanan, geliştiren,
+   yayına alan veya işleten taraf ("İşletici"); TÜRSAB / 1618 sayılı Kanun,
+   KVKK / 6698, 6502 sayılı Tüketici Kanunu, Mesafeli Sözleşmeler ve Paket Tur
+   Sözleşmeleri Yönetmelikleri (zorunlu paket tur teminatı/sigortası dahil),
+   vergi ve ödeme (PCI) mevzuatı dahil tüm yükümlülüklere uymaktan TEK BAŞINA
+   sorumludur. Bu sorumluluk; BİLİNMEYEN, GİZLİ veya ÖNGÖRÜLEMEYEN her türlü
+   hukuki açık, eksiklik veya ihlali de kapsar. Yazar hiçbir hukuki, mali veya
+   cezai sorumluluk üstlenmez ve yazılımın herhangi bir yasaya uygun olduğuna
+   dair hiçbir taahhütte bulunmaz.
+
+6. HUKUKİ TAVSİYE DEĞİLDİR; DEMO VERİ. Yazılım ve belgeleri hukuki/mali tavsiye
+   içermez. Yazılım; demo veriler, sahte hesaplar, ÖRNEK yasal metinler, KURGUSAL
+   bir "TÜRSAB Belge No" ve örnek firma kimliği ile gelir. Bunlar gerçek ve yasal
+   olarak geçerli DEĞİLDİR; gerçek kullanımdan önce bir avukat tarafından
+   incelenmeli ve değiştirilmeli/kaldırılmalıdır.
+
+7. RÜCU / TAZMİN. İşletici; yazılımın kullanımı/işletilmesinden doğan ve üçüncü
+   kişilerce (müşteri, idare veya TÜRSAB dahil) yazara yöneltilen her türlü
+   talebe karşı yazarı tazmin etmeyi ve sorumluluktan beri kılmayı kabul eder.
+
+— Bu metin hukuki tavsiye değildir. Yayına almadan önce bir AVUKATA ve
+  (Türkiye'de tur acenteliği için) TÜRSAB'a danışın.
