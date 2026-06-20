@@ -241,7 +241,7 @@ export function BookingWizard({ tour, dates, rooms, extras, initialDateId }: Pro
 
               <label className="mt-5 flex items-start gap-2 text-sm text-ink-soft">
                 <input data-testid="kvkk" type="checkbox" checked={kvkk} onChange={(e) => setKvkk(e.target.checked)} className="mt-0.5 h-4 w-4 rounded border-slate-300" />
-                <span><a href="/gizlilik" className="text-brand-700 underline">KVKK aydınlatma metnini</a> ve <a href="/kosullar" className="text-brand-700 underline">kullanım koşullarını</a> okudum, onaylıyorum.</span>
+                <span><a href="/gizlilik" className="text-brand-700 underline">KVKK aydınlatma metnini</a> ve <a href="/kosullar" className="text-brand-700 underline">kullanım koşullarını</a> okudum, onaylıyorum. <span className="text-ink-muted">(Demo: bu işlem gerçek bir rezervasyon, sözleşme veya ödeme oluşturmaz; bağlayıcı değildir.)</span></span>
               </label>
 
               {error && <div className="mt-4 flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-3 text-sm text-rose-700"><AlertCircle className="h-4 w-4" /> {error}</div>}

@@ -1,3 +1,36 @@
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+<!-- ⚖️  HUKUKİ UYARI / LEGAL NOTICE — READ FIRST / ÖNCE OKUYUN                 -->
+<!-- ════════════════════════════════════════════════════════════════════════ -->
+
+> # ⚖️ HUKUKİ UYARI — SORUMLULUK REDDİ
+>
+> **🇹🇷 Bu yazılım geliştirme/demo amaçlıdır ve "OLDUĞU GİBİ" (as-is) sunulur.** Gerçek bir tur
+> acentesi değildir; gerçek satış, rezervasyon veya tahsilat yapmaz. İçindeki firma bilgileri,
+> fiyatlar, turlar, **TÜRSAB belge numarası**, telefon, IBAN ve tüm yasal metinler **kurgusal
+> örnektir, bağlayıcı değildir.**
+>
+> Yazılım [`LICENSE`](LICENSE) kapsamında **herkese açık ve ücretsiz** olarak devredilmiştir:
+> dileyen alıp **kendi riskiyle** kullanabilir, değiştirebilir, geliştirebilir ve yayına alabilir.
+> Yazılımı alan / yayına alan / işleten taraf — **işletici/yayıncı** — yürürlükteki **tüm** yasal
+> yükümlülüklere (TÜRSAB/1618, KVKK/6698, 6502 tüketici ve paket tur mevzuatı, vergi, ödeme/PCI)
+> uymaktan **TEK BAŞINA ve MÜNHASIRAN sorumludur; bilinmeyen veya öngörülemeyen hukuki açıklar
+> dâhil.** Yazılımı **geliştiren / sağlayan / veren taraf, hukuken bertaraf edilemeyen kast ve ağır
+> kusur (TBK m.115) hâlleri dışında, hiçbir hukuki, mali veya cezai sorumluluk üstlenmez** ve
+> yazılımın herhangi bir yasaya uygun olduğuna dair **hiçbir taahhütte bulunmaz.**
+>
+> **🇬🇧** This is **AS-IS demo software**, freely handed off under the [`LICENSE`](LICENSE). Whoever
+> uses, develops, or deploys it is the **Operator** and bears **sole responsibility** for all legal
+> and regulatory compliance, **including unknown or latent gaps**. The author accepts **no liability**
+> beyond what mandatory law forbids excluding.
+>
+> 📄 Ayrıntılı sorumluluk reddi ve devir/teslim tutanağı: **[`SORUMLULUK-REDDI.md`](SORUMLULUK-REDDI.md)**
+> · Lisans: **[`LICENSE`](LICENSE)** · Şartlar: **[`TERMS.md`](TERMS.md)**
+>
+> _Bu metin hukuki tavsiye değildir. Yayına almadan önce mutlaka bir **avukata** ve (Türkiye'de tur
+> acenteliği için) **TÜRSAB'a** danışın._
+
+---
+
 # Tur Acente — Tourism Agency Platform (Blueprint)
 
 > Production blueprint for an Acente2-style B2C + B2B tour-operator platform.

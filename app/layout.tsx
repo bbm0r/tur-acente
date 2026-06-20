@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Protective default: the whole site is noindex until the operator explicitly
+// opts in (ALLOW_INDEXING=true) — a demo must not be indexed as a real agency.
+const ALLOW_INDEXING = process.env.ALLOW_INDEXING === "true";
+
 export const metadata: Metadata = {
   title: {
     default: "Tur Acente — Yurt Dışı Paket Turlar",
@@ -9,6 +13,7 @@ export const metadata: Metadata = {
   description:
     "Mısır, Rusya Moskova, İtalya, Benelüks ve Yunanistan paket turları. Şeffaf fiyat, kolay rezervasyon, güvenli tatil.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3100"),
+  robots: ALLOW_INDEXING ? undefined : { index: false, follow: false, nocache: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

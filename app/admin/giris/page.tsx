@@ -47,7 +47,7 @@ export default async function AdminLoginPage({
             <input name="password" type="password" defaultValue="admin1234" className="input" required />
           </label>
           <button type="submit" className="btn-primary w-full"><LogIn className="h-4 w-4" /> Giriş Yap</button>
-          <p className="text-center text-xs text-ink-muted">Demo: admin@turacente.com / admin1234</p>
+          <p className="text-center text-xs text-ink-muted">⚠️ DEMO sistem — örnek giriş: admin@turacente.com / admin1234 (yayında kaldırın)</p>
         </form>
       </div>
     </div>
