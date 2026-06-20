@@ -68,6 +68,34 @@ birlikte yazarın hiçbir sorumluluğu, taahhüdü veya yükümlülüğü kalmaz
 TÜRSAB** dâhil üçüncü kişilerce **yazara** yöneltilecek her türlü talep, ceza ve zarara karşı
 yazarı **tazmin etmeyi** ve **sorumluluktan beri kılmayı** kabul eder.
 
+## 7. Yazar veri sorumlusu/işleyen DEĞİLDİR (KVKK)
+
+Yazar; yazılım aracılığıyla toplanan **hiçbir kişisel veriyi almaz, görmez, saklamaz veya
+işlemez.** 6698 sayılı **KVKK** ve ilgili mevzuat bakımından, bir kuruluma ait tüm kişisel
+verilerin tek **veri sorumlusu** — ve gerektiğinde **veri işleyeni** belirleyen taraf —
+**İşletici/Yayıncıdır.** Hukuki sebep, **aydınlatma metni**, **açık rıza**, **VERBİS** kaydı, veri
+güvenliği, saklama/imha ve **ihlal bildirimi** dâhil tüm yükümlülükler İşleticiye aittir. **Yazar
+veri sorumlusu da veri işleyen de değildir.**
+
+## 8. Destek, bakım veya güncelleme yükümlülüğü yoktur
+
+Yazar; **destek, bakım, güncelleme, hata düzeltme veya güvenlik yaması** sağlamakla yükümlü
+değildir. Yazılımı sürdürme, izleme veya düzeltme borcu yoktur.
+
+## 9. Üçüncü taraf bileşenler ve markalar
+
+Yazılım, her biri **kendi lisansına tabi ve garantisiz** açık kaynak bileşenlere dayanır; bunlara
+uyum İşleticiye aittir. **TÜRSAB, iyzico, Stripe, Resend** ve diğer adlar **sahiplerine** aittir;
+yalnızca atıf amacıyla anılır ve hiçbir bağlantı/onay ima etmez.
+
+## 10. Uygulanacak hukuk, bölünebilirlik ve devamlılık
+
+Bu belgeye ve yazılıma **Türkiye Cumhuriyeti hukuku** uygulanır; **İstanbul (Çağlayan) Mahkemeleri
+ve İcra Daireleri** yetkilidir (tüketici lehine zorunlu yetki kuralları saklıdır). Herhangi bir
+hüküm geçersiz sayılırsa **gerekli asgari ölçüde** sınırlanır/ayrılır, **kalan hükümler yürürlükte
+kalır.** Sorumluluğun reddi ve dağılımına ilişkin hükümler **kullanım/devir/sona ermeden sonra da**
+geçerliliğini korur. Yazar ile İşletici arasında **hiçbir ortaklık/vekâlet/temsil** ilişkisi doğmaz.
+
 ---
 
 ## Ek: Tekil devir/teslim tutanağı şablonu (opsiyonel — imza ile)

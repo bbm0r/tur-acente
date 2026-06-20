@@ -14,7 +14,7 @@ ENGLISH (controlling text)
    permission request, or further agreement with the author is required.
 
 2. ATTRIBUTION & NOTICE. The above copyright notice, this license, and the
-   disclaimer in Sections 3–7 shall be retained in all copies or substantial
+   disclaimer in Sections 3–13 shall be retained in all copies or substantial
    portions of the Software. Removing or altering them does not transfer to the
    author any responsibility for the Software.
 
@@ -74,6 +74,43 @@ ENGLISH (controlling text)
    authorities, or TÜRSAB) arising out of the Operator's use, development,
    deployment, or operation of the Software.
 
+8. NO SUPPORT; NO MAINTENANCE. The Software is provided without any obligation on
+   the author to provide support, maintenance, updates, bug fixes, or security
+   patches. The author has no duty to continue, monitor, or correct the Software.
+
+9. NOT A DATA CONTROLLER OR PROCESSOR. The author does not receive, access,
+   store, or process any personal data collected through the Software. Under the
+   KVKK (6698 sayılı Kanun) and any other data-protection law, the Operator is the
+   sole data controller (veri sorumlusu) — and, where applicable, arranges any
+   data processor (veri işleyen) — for all data processed by a deployment, and is
+   solely responsible for lawful basis, disclosure, consent, security, and breach
+   notification. The author is neither a controller nor a processor.
+
+10. THIRD-PARTY COMPONENTS; TRADEMARKS. The Software depends on third-party
+    open-source components, each licensed under its own terms and provided without
+    warranty; the Operator is responsible for complying with those terms. Names
+    such as TÜRSAB, iyzico, Stripe, Resend, and any other marks are the property
+    of their respective owners and are referenced only nominatively; no
+    affiliation or endorsement is implied.
+
+11. GOVERNING LAW; JURISDICTION. This license and any dispute arising out of or in
+    connection with it or the Software are governed by the laws of the Republic of
+    Türkiye, without regard to conflict-of-law rules. The İstanbul (Çağlayan)
+    Courts and Enforcement Offices (İstanbul Mahkemeleri ve İcra Daireleri) have
+    jurisdiction, without prejudice to any mandatory consumer-protection venue.
+
+12. SEVERABILITY; NO WAIVER; SURVIVAL. If any provision is held invalid or
+    unenforceable, it shall be limited or severed to the minimum extent necessary
+    and the remaining provisions shall remain in full force. No failure to enforce
+    any provision is a waiver of it. The disclaimers and the limitation and
+    allocation of liability and responsibility (Sections 3–10) survive any use,
+    distribution, or termination.
+
+13. NO AGENCY; ENTIRE AGREEMENT. Nothing creates any partnership, agency,
+    employment, joint venture, or fiduciary relationship between the author and
+    any Operator or user. This license (together with SORUMLULUK-REDDI.md) is the
+    entire agreement regarding the Software and supersedes any prior understanding.
+
 ================================================================================
 TÜRKÇE (özet — bağlayıcı metin yukarıdaki İngilizce metindir)
 ================================================================================
@@ -115,6 +152,35 @@ TÜRKÇE (özet — bağlayıcı metin yukarıdaki İngilizce metindir)
 7. RÜCU / TAZMİN. İşletici; yazılımın kullanımı/işletilmesinden doğan ve üçüncü
    kişilerce (müşteri, idare veya TÜRSAB dahil) yazara yöneltilen her türlü
    talebe karşı yazarı tazmin etmeyi ve sorumluluktan beri kılmayı kabul eder.
+
+8. DESTEK/BAKIM YOK. Yazar; destek, bakım, güncelleme, hata düzeltme veya güvenlik
+   yaması sağlamakla yükümlü değildir. Yazılımı sürdürme veya düzeltme borcu yoktur.
+
+9. VERİ SORUMLUSU/İŞLEYEN DEĞİLDİR. Yazar; yazılım aracılığıyla toplanan hiçbir
+   kişisel veriyi almaz, erişmez, saklamaz veya işlemez. KVKK (6698) ve diğer veri
+   koruma mevzuatı bakımından, bir kuruluma ait tüm kişisel verilerin tek
+   **veri sorumlusu** (ve gerektiğinde veri işleyeni belirleyen taraf) İŞLETİCİDİR;
+   hukuki sebep, aydınlatma, açık rıza, veri güvenliği ve ihlal bildiriminden tek
+   başına İşletici sorumludur. Yazar veri sorumlusu da veri işleyen de değildir.
+
+10. ÜÇÜNCÜ TARAF BİLEŞENLER; MARKALAR. Yazılım, her biri kendi lisansına tabi ve
+    garantisiz açık kaynak bileşenlere dayanır; bu lisanslara uyum İşleticiye
+    aittir. TÜRSAB, iyzico, Stripe, Resend ve diğer adlar sahiplerine aittir;
+    yalnızca atıf amacıyla anılır, herhangi bir bağlantı/onay ima etmez.
+
+11. UYGULANACAK HUKUK; YETKİ. Bu lisans ve yazılımdan doğan uyuşmazlıklara Türkiye
+    Cumhuriyeti hukuku uygulanır; İstanbul (Çağlayan) Mahkemeleri ve İcra Daireleri
+    yetkilidir (tüketici lehine zorunlu yetki kuralları saklıdır).
+
+12. BÖLÜNEBİLİRLİK; FERAGAT ETMEME; DEVAMLILIK. Bir hüküm geçersiz sayılırsa,
+    gerekli asgari ölçüde sınırlanır/ayrılır; kalan hükümler yürürlükte kalır. Bir
+    hakkın kullanılmaması ondan feragat sayılmaz. Sorumluluğun reddi, sınırlanması
+    ve dağılımına ilişkin hükümler (3–10) kullanım/dağıtım/sona ermeden sonra da
+    geçerliliğini korur.
+
+13. VEKÂLET/ORTAKLIK YOK; BÜTÜNLÜK. Yazar ile İşletici/kullanıcı arasında hiçbir
+    ortaklık, vekâlet, iş ilişkisi veya temsil doğmaz. Bu lisans (SORUMLULUK-REDDI.md
+    ile birlikte) yazılıma ilişkin tüm anlaşmayı oluşturur.
 
 — Bu metin hukuki tavsiye değildir. Yayına almadan önce bir AVUKATA ve
   (Türkiye'de tur acenteliği için) TÜRSAB'a danışın.
