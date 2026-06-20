@@ -24,6 +24,10 @@ export default async function ConfirmationPage({ params }: { params: Promise<{ r
             Referans numaranız <strong className="text-ink">{reservation.reference}</strong>. Bu numarayı
             saklayın — rezervasyonunuzu istediğiniz zaman sorgulayabilirsiniz. Onay e-postası gönderildi.
           </p>
+          <p className="mt-4 max-w-xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            ⚠️ <strong>DEMO / ÖRNEK:</strong> Bu bir demo sistemdir; oluşturulan kayıt{" "}
+            <strong>gerçek bir rezervasyon, sözleşme veya tahsilat teşkil etmez</strong> ve bağlayıcı değildir.
+          </p>
         </div>
 
         <ReservationView reservation={reservation} />

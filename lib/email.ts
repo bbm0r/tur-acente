@@ -38,6 +38,7 @@ export function emailLayout(heading: string, body: string) {
       ${body}
       <hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0"/>
       <p style="font-size:12px;color:#64748b;margin:0">Bu e-posta Tur Acente rezervasyon sistemi tarafından gönderilmiştir.</p>
+      <p style="font-size:11px;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:8px 10px;margin:10px 0 0">⚠️ DEMO / ÖRNEK: Bu mesaj geliştirme/demo amaçlı bir sistemden gönderilmiştir; gerçek bir rezervasyon, ödeme veya satış teşkil etmez. Bağlayıcı değildir.</p>
     </div>
   </div>`;
 }

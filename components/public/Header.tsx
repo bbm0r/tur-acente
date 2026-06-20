@@ -19,9 +19,9 @@ export async function Header() {
     <header className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur">
       <div className="bg-brand-700 text-white">
         <div className="container-page flex h-9 items-center justify-between text-xs">
-          <span className="hidden sm:inline">Yurt dışı paket turlarda güvenilir adresiniz · Şeffaf fiyat garantisi</span>
+          <span className="hidden sm:inline">DEMO / örnek site · Gerçek satış yapılmaz</span>
           <a href="tel:+902120000000" className="inline-flex items-center gap-1.5 font-medium">
-            <Phone className="h-3.5 w-3.5" /> +90 212 000 00 00
+            <Phone className="h-3.5 w-3.5" /> +90 212 000 00 00 (örnek)
           </a>
         </div>
       </div>
