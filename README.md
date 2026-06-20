@@ -37,8 +37,9 @@
 > Sells international package tours: **Mısır · Rusya (Moskova) · İtalya · Benelüks · Yunanistan**.
 > Docs in English; all user-facing content, slugs, and seed data in Turkish.
 
-The full Next.js application is **built and runs locally** — see **`RUNNING.md`** (how to run) and
-**`HANDOFF.md`** (full project state). `docs/` holds the original architecture blueprint.
+The full Next.js application **builds and runs locally** (`npm install` → set up `.env` from
+`.env.example` → `npm run db:push && npm run db:seed` → `npm run dev`). `docs/` holds the original
+architecture blueprint for reference.
 
 ---
 

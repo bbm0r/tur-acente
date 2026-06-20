@@ -23,11 +23,14 @@ export async function GET(req: Request, { params }: { params: Promise<{ dateId: 
     rows = [["Referans", "Müşteri", "Yolcu", "Tip", "Oda"], ...ops.pax.map((p) => [p.ref, p.customer, p.name, paxTypeLabel[p.paxType], p.room])];
   }
 
+  // DEMO stamp — this is an example export, not a real operational document.
+  rows = [["DEMO / ÖRNEK ÇIKTI — gerçek operasyon belgesi değildir, bağlayıcı değildir."], [], ...rows];
+
   const body = "﻿" + toCsv(rows); // UTF-8 BOM so Excel reads Turkish chars correctly
   return new Response(body, {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="operasyon-${type}-${ops.td.startDate.toISOString().slice(0, 10)}.csv"`,
+      "Content-Disposition": `attachment; filename="DEMO-operasyon-${type}-${ops.td.startDate.toISOString().slice(0, 10)}.csv"`,
     },
   });
 }

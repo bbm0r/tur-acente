@@ -15,10 +15,15 @@ export default function ContactPage() {
           <h1 className="text-3xl font-extrabold text-ink">Bize Ulaşın</h1>
           <p className="mt-2 text-ink-muted">Tur ve rezervasyon sorularınız için ekibimiz hazır. Formu doldurun ya da doğrudan arayın.</p>
 
+          <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            ⚠️ <strong>DEMO / ÖRNEK:</strong> Aşağıdaki iletişim bilgileri gerçek değildir, örnek
+            amaçlıdır. Bu bir demo sitedir; gerçek satış veya rezervasyon yapılmaz.
+          </p>
+
           <div className="mt-8 space-y-4">
-            <Info icon={<Phone className="h-5 w-5" />} title="Telefon" value="+90 212 000 00 00" />
-            <Info icon={<Mail className="h-5 w-5" />} title="E-posta" value="info@turacente.com" />
-            <Info icon={<MapPin className="h-5 w-5" />} title="Adres" value="Merkez Ofis, İstanbul, Türkiye" />
+            <Info icon={<Phone className="h-5 w-5" />} title="Telefon" value="+90 212 000 00 00 (örnek)" />
+            <Info icon={<Mail className="h-5 w-5" />} title="E-posta" value="info@turacente.com (örnek)" />
+            <Info icon={<MapPin className="h-5 w-5" />} title="Adres" value="Merkez Ofis, İstanbul, Türkiye (örnek)" />
             <Info icon={<Clock className="h-5 w-5" />} title="Çalışma Saatleri" value="Hafta içi 09:00–19:00 · Cumartesi 10:00–16:00" />
           </div>
 
