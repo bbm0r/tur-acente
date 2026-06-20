@@ -1,16 +1,26 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, Home, Search } from "lucide-react";
 import { getReservationByReference } from "@/lib/reservations";
+import { getCustomerUser, hasBookingGrant } from "@/lib/auth";
 import { ReservationView } from "@/components/public/ReservationView";
 
 export const metadata: Metadata = { title: "Rezervasyon Onayı", robots: { index: false } };
 
 export default async function ConfirmationPage({ params }: { params: Promise<{ ref: string }> }) {
   const { ref } = await params;
-  const reservation = await getReservationByReference(decodeURIComponent(ref));
+  const decodedRef = decodeURIComponent(ref);
+  const reservation = await getReservationByReference(decodedRef);
   if (!reservation) notFound();
+
+  // Authorize: only the just-booked visitor (signed grant cookie) or the account
+  // owner may see the PII here. Anyone else must verify via the email/phone lookup —
+  // a guessed reference number alone is not enough.
+  const me = await getCustomerUser();
+  const authorized =
+    (!!me?.customerId && reservation.customerId === me.customerId) || (await hasBookingGrant(decodedRef));
+  if (!authorized) redirect(`/rezervasyon-sorgula?ref=${encodeURIComponent(decodedRef)}`);
 
   return (
     <div className="bg-slate-50">

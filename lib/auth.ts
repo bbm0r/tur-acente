@@ -52,6 +52,39 @@ export async function getSession(): Promise<Session | null> {
   }
 }
 
+// ── Booking-confirmation grant. Lets the just-booked visitor (who has no account)
+// view their own confirmation page by reference, WITHOUT exposing it to anyone who
+// guesses a reference. Signed + httpOnly so the client cannot forge it; 4h TTL. ──
+const BOOKING_COOKIE = "ta_booking";
+
+export async function grantBookingView(reference: string) {
+  const token = await new SignJWT({ ref: reference })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("4h")
+    .sign(getSecret());
+  const c = await cookies();
+  c.set(BOOKING_COOKIE, token, {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: 60 * 60 * 4,
+  });
+}
+
+export async function hasBookingGrant(reference: string): Promise<boolean> {
+  const c = await cookies();
+  const token = c.get(BOOKING_COOKIE)?.value;
+  if (!token) return false;
+  try {
+    const { payload } = await jwtVerify(token, getSecret());
+    return payload.ref === reference;
+  } catch {
+    return false;
+  }
+}
+
 // ── basic login throttle (in-memory; single-instance dev). Use Redis for
 // multi-instance production. ──
 const attempts = new Map<string, { n: number; until: number }>();

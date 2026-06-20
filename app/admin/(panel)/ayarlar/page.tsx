@@ -10,9 +10,9 @@ export default function AdminSettings() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card icon={<Building2 className="h-5 w-5" />} title="Şirket Bilgileri">
-          <Field label="Acente Adı" value="Tur Acente Turizm A.Ş." />
-          <Field label="E-posta" value="info@turacente.com" />
-          <Field label="Telefon" value="+90 212 000 00 00" />
+          <Field label="Acente Adı" value="Tur Acente Turizm A.Ş. (örnek/demo)" />
+          <Field label="E-posta" value="info@turacente.com (örnek)" />
+          <Field label="Telefon" value="+90 212 000 00 00 (örnek)" />
           <Field label="Para Birimi" value="Baz: EUR · Görünüm: TRY" />
         </Card>
 
